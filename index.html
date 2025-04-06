@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>Bevy game</title> <!-- ToDo -->
+        
+        
+        
+        <link rel="icon" href="icon.ico">
+        <style>body, html {
+    height: 100%;
+}
+
+body {
+    background-color: lightgray;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    width: 1440px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#bevy {
+    z-index: 2;
+}
+</style>
+    <link rel="modulepreload" href="./Flower-5d4410cdaa13120b.js" crossorigin="anonymous" integrity="sha384-okzCq7xfIBd9zW+JYk/QXZsti84CUQjIg56XndnEemeqb/o8SqVdstwQcPpp5FCd"><link rel="preload" href="./Flower-5d4410cdaa13120b_bg.wasm" crossorigin="anonymous" integrity="sha384-ySyI49pRuwsPAy+mbvqsrdupLqXXJIgtIWDstKyWbjmT4NvL+2EWdRiDYJWtG/M5" as="fetch" type="application/wasm"></head>
+    <body>
+        <div class="game-container">
+            <div class="lds-dual-ring"></div>
+            <canvas id="bevy">
+                Javascript and support for canvas is required
+            </canvas>
+        </div>
+    
+<script type="module">
+import init, * as bindings from './Flower-5d4410cdaa13120b.js';
+const wasm = await init({ module_or_path: './Flower-5d4410cdaa13120b_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+</html>
