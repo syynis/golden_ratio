@@ -1,0 +1,24 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    background-color: lightgray;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    width: 1440px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#bevy {
+    z-index: 2;
+}
